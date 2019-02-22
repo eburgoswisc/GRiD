@@ -1,7 +1,3 @@
-FROM r-base:3.4.1
-
-# install
-
-# install.packages("dplyr")
+FROM gaarangoa/grid:1.0
 
 

@@ -13,14 +13,16 @@ The comprehensive GRiD database consists of 32,819 representative bacteria genom
 However, to reduce runtime, we provided environment-specific database that was created using microbes mostly found in a specific microbial niche. This can be retrieved from **ftp://ftp.jax.org/ohlab/GRiD_environ_specific_database/**. For instance, if you are analyzing stool samples, it is advisable to download and extract the stool database `ftp://ftp.jax.org/ohlab/GRiD_environ_specific_database/stool_microbes.tar.gz`.
 
 # INSTALLATION
-This versio uses docker, so, no need to install dependencies just downloading the image should be fine. To run it just do this:
+This version is a mere adaptation that uses docker. The advantages, there is no need to install any dependencies just downloading the image should be fine.
+To run it just do this:
 
-    docker run --rm -it --volumes $PWD:/data/ gaarangoa/grid:1.0 grid
+     docker run --rm -it -v $PWD:/data/ gaarangoa/grid:1.0 /bin/bash
 
 Make sure to add the --volumes tag so you can access to your data from the hosting machine! and this is it!
 
-thanks to Emiola and Oh (2018) for developing this tool!
+Thanks to Emiola and Oh (2018) for developing this tool!
 
+(see Example to know how to use docker images!)
 
 # USAGE
 
@@ -80,6 +82,13 @@ For the 'multiplex' module, reads mapping to multiple genomes are reassigned usi
 The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus gasseri*, and *Campylobacter upsaliensis*, each with coverage of ~ 0.5. Download the GRiD folder and run the test as shown below.
 
 If you created a conda environment prior to installation using the example in the "Installation" section, then always activate the environment prior to running GRiD using the command `source activate GRiD`. Otherwise, skip this step.
+
+Access your docker container, make sure to add the volume to **where you have your data!**
+
+`docker run --rm -it -v $PWD:/data/ gaarangoa/grid:1.0 /bin/bash`
+`cd /data/`
+
+Now you can run the example!
 
 `wget https://github.com/ohlab/GRiD/archive/1.2.tar.gz`
 
