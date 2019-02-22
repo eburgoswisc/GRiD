@@ -24,7 +24,7 @@ slidingwindowplot <- function(windowsize, inputseq)
   chunkbps <- numeric(n)
   chunkstats<- numeric(n)
   for (i in 1:n) {
-    chunk <- inputseq[starts[i]:(starts[i]+windowsize-1)] 
+    chunk <- inputseq[starts[i]:(starts[i]+windowsize-1)]
     chunkmean <- mean(chunk)
     chunkstdv<-sd(chunk)
     chunkbps[i] <- chunkmean
@@ -43,7 +43,7 @@ remove_outliers <- function(x, na.rm = TRUE, ...) {
 binSize<-10000
 column.types <- c("character", "numeric", "numeric")
 ###########################################################################################################
-#  Calculate GRiD 
+#  Calculate GRiD
 ###########################################################################################################
 all.data <- read.csv(inputfile, header=FALSE, sep="\t",colClasses=column.types)
 myvector_all<-as.vector(as.matrix(all.data[3]))
@@ -83,7 +83,7 @@ GRiD_rounded<-GRiD_rounded
 dnaa <- dnaa-1
 dif <- dif-1
 x_cordinates <- V[,2]
-if(dnaa > 0){ 
+if(dnaa > 0){
 i <- which.min(abs(x_cordinates - dnaa))
 position <- x_cordinates[i]
 dnaa_cov <- 2^(filter(V,x==position)%>% select(ymin))
@@ -102,7 +102,7 @@ dif_output <- "dif not found"
 }
 
 ############################################################################################################################
-# GRiD calculation using first round of subsampled reads in order to estimate 95% confidence interval 
+# GRiD calculation using first round of subsampled reads in order to estimate 95% confidence interval
 ###########################################################################################################################
 all.data <- read.csv(inputfile2, header=FALSE, sep="\t",colClasses=column.types)
 myvector_all<-as.vector(as.matrix(all.data[3]))
@@ -130,7 +130,7 @@ fit <- na.omit(fit)
    GRiD2<-(2^ori)/(2^ter)
    maxF<-max(fit)
    minF<-min(fit)
-   
+
 GRiD_rounded2 <-round(GRiD2, 2)
 if(GRiD_rounded2 < 1){
 GRiD_rounded2 <- 1.00
@@ -166,7 +166,7 @@ fit <- na.omit(fit)
    GRiD3<-(2^ori)/(2^ter)
    maxF<-max(fit)
    minF<-min(fit)
-   
+
 GRiD_rounded3 <-round(GRiD3, 2)
 if(GRiD_rounded3 < 1){
 GRiD_rounded3 <- 1.00
